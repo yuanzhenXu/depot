@@ -1,0 +1,14 @@
+<h1>Pragmatic Order Shipped</h1>
+<p>
+  This is just to let you know that we are shipped your recent order:
+</p>
+<table>
+  <tr>
+    <th colspan="2">Qty</th>
+    <th>Description</th>
+  </tr>
+  <%= render @order.line_items %>
+</table>
+<p>
+  <%= @greeting %>, find me in app/views/notifier_mailer/order_shipped.html.erb
+</p>
