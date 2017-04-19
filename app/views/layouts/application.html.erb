@@ -14,10 +14,13 @@
   </div>
   <div id="columns">
     <div id="side">
-      <a href=""></a>Home<br>
-      <a href=""></a>Question<br>
-      <a href=""></a>News<br>
-      <a href=""></a>Contract<br>
+      <div id="cart">
+        <%= render "line_items/line_item" %>
+      </div>
+      <a href="#"></a>Home<br>
+      <a href="#"></a>Question<br>
+      <a href="#"></a>News<br>
+      <a href="#"></a>Contract<br>
     </div>
     <div id="main">
       <%= yield %>
