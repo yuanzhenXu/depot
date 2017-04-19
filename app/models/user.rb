@@ -6,6 +6,8 @@ class User < ApplicationRecord
   attr_accessor :password
   # validates :password_must_be_present
 
+  after_destroy
+
   def User.encrypt_password(password,salt)
     Digest::SHA2.hexdigest(password + "wibble" +salt)
   end
@@ -27,6 +29,12 @@ class User < ApplicationRecord
       if user.hashed_password == encrypt_password(password, user.salt)
         user
       end
+    end
+  end
+
+  def ensure_an_admin_remains
+    if User.count.zero?
+      raise "Can't delete last user"
     end
   end
 
